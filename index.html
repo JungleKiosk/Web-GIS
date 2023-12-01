@@ -30,6 +30,7 @@
         <!-- button onclik full screen map -->
         <button onclick=fullScreenview()> View in full screen </button>
         <div class="cordinate"></div>
+        <button class="print_map">Print map</button>
         <h2>reference coordinates: 37.922060 12.362527</h2>
     </body>
 </html>
@@ -70,13 +71,18 @@ function fullScreenview(){
     mapId.requestFullscreen();
 }
 
-/* map coordinate display */
+/* map coordinate display (jquery) */
 map.on('mousemove',function(e){
     /* console.log(e); */
     /* by moving the mouse on the map page,
     the JS objects containing the geographical
     coordinates will appear in the console */
     $('.cordinate').html(`lat: ${e.latlng.lat} lng: ${e.latlng.lng}`)/* backtick to template literal */
+})
+
+/* Print map (jquery) */
+$('.print_map').click(function(){
+    window.print()
 })
 
 
