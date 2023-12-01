@@ -124,8 +124,10 @@
     // measureAction.setModel('area');
     measureAction.enable();
     /* ------------- */
-    L.geoJSON(data).addTo(map);
-
-
+    /* Load geoJSON from data file JS */
+    var marker = L.markerClusterGroup();
+    var taji = L.geoJSON(data);
+    taji.addTo(marker);
+    marker.addTo(map)
 
 </script>
