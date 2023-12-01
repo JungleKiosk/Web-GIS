@@ -37,14 +37,22 @@
 
 <script>
 /* create a map in the 'map' div, add tiles of our choice, and then add a marker with some text in a popup */
+
+/* map class initialize */
 var map = L.map('map').setView([37.922060, 12.362527], 13);
 
+/* adding OMS tilelayer */
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+/* adding marker in the center of map */
 L.marker([37.922060, 12.362527]).addTo(map)
     .bindPopup('A pretty CSS popup.<br> Easily customizable.')
     .openPopup();
+
+/* add map scale: down on left on page */
+
+L.control.scale().addTo(map)
 
 </script>
