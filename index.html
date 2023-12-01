@@ -40,7 +40,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- jquery from CDN-->
+<!-- jquery from CDN-->
 
 <script>
 /* create a map in the 'map' div, add tiles of our choice, and then add a marker with some text in a popup */
@@ -69,5 +69,15 @@ var mapId = document.getElementById('map') /* take DOM element by id */
 function fullScreenview(){
     mapId.requestFullscreen();
 }
+
+/* map coordinate display */
+map.on('mousemove',function(e){
+    /* console.log(e); */
+    /* by moving the mouse on the map page,
+    the JS objects containing the geographical
+    coordinates will appear in the console */
+    $('.cordinate').html(`lat: ${e.latlng.lat} lng: ${e.latlng.lng}`)/* backtick to template literal */
+})
+
 
 </script>
