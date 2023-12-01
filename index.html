@@ -42,56 +42,68 @@
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- jquery from CDN-->
-<script src="./node_modules/leaflet.browser.print/dist/leaflet.browser.print.min.js"></script>
+<script
+    src="./node_modules/leaflet.browser.print/dist/leaflet.browser.print.min.js"></script>
 <!-- import library from terminal: npm install --save leaflet.browser.print ✨-->
+<script src="./measure_lib/leaflet-measure.js"></script>
+<!-- import library leaflet-measure -->
 
 <script>
-/* create a map in the 'map' div, add tiles of our choice, and then add a marker with some text in a popup */
+    /* create a map in the 'map' div, add tiles of our choice, and then add a marker with some text in a popup */
 
-/* map class initialize */
-var map = L.map('map').setView([37.922060, 12.362527], 13);
+    /* map class initialize */
+    var map = L.map('map').setView([37.922060, 12.362527], 13);
 
-/* position zoomControl */
-map.zoomControl.setPosition("topright")
+    /* position zoomControl */
+    map.zoomControl.setPosition("topright")
 
-/* adding OMS tilelayer */
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
+    /* adding OMS tilelayer */
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
 
-/* adding marker in the center of map */
-L.marker([37.922060, 12.362527]).addTo(map)
-    .bindPopup('A pretty CSS popup.<br> Easily customizable.')
-    .openPopup();
+    /* adding marker in the center of map */
+    L.marker([37.922060, 12.362527]).addTo(map)
+        .bindPopup('A pretty CSS popup.<br> Easily customizable.')
+        .openPopup();
 
-/* add map scale: down on left on page = scale({position: "bottomright"})*/
-L.control.scale().addTo(map)
+    /* add map scale: down on left on page = scale({position: "bottomright"})*/
+    L.control.scale().addTo(map)
 
-/* function full screen map view onclick */
-var mapId = document.getElementById('map') /* take DOM element by id */
-function fullScreenview(){
-    mapId.requestFullscreen();
-}
+    /* function full screen map view onclick */
+    var mapId = document.getElementById('map') /* take DOM element by id */
+    function fullScreenview(){
+        mapId.requestFullscreen();
+    }
 
-/* map coordinate display (jquery) */
-map.on('mousemove',function(e){
-    /* console.log(e); */
-    /* by moving the mouse on the map page,
-    the JS objects containing the geographical
-    coordinates will appear in the console */
-    $('.cordinate').html(`lat: ${e.latlng.lat} lng: ${e.latlng.lng}`)/* backtick to template literal */
-})
+    /* map coordinate display (jquery) */
+    map.on('mousemove',function(e){
+        /* console.log(e); */
+        /* by moving the mouse on the map page,
+        the JS objects containing the geographical
+        coordinates will appear in the console */
+        $('.cordinate').html(`lat: ${e.latlng.lat} lng: ${e.latlng.lng}`)/* backtick to template literal */
+    })
 
-/* Print map (jquery) */
-$('.print_map').click(function(){
-    window.print()
-})
+    /* Print map (jquery) */
+    $('.print_map').click(function(){
+        window.print()
+    })
 
-/* the map window print is not responsive */
-/* So, import npm install --save leaflet.browser.print
-from terminal */
-/* TNKU_veryMuch✨: https://github.com/Igor-Vladyka/leaflet.browser.print */
+        /* the map window print is not responsive */
+        /* import plug-in with npm install --save leaflet.browser.print
+        from terminal */
+        /* TNKU_veryMuch✨: https://github.com/Igor-Vladyka/leaflet.browser.print */
 
-L.control.browserPrint().addTo(map);
+    L.control.browserPrint().addTo(map);/* it's also possibile to save map in PDF */
+
+    /* measure on map */
+
+        /* import plug-in with npm install --save leaflet.browser.print
+        from terminal */
+        /* TNKU_veryMuch✨: https://github.com/ljagis/leaflet-measure */
+
+    
+
 
 </script>
