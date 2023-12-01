@@ -8,6 +8,7 @@
             integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
             crossorigin />
         <!-- CSS leaflet from CDN -->
+        <link rel="stylesheet" href="./measure_lib/leaflet-measure.css">
         <title>Web-GIS</title>
 
         <!-- style page -->
@@ -49,33 +50,33 @@
 <!-- import library leaflet-measure -->
 
 <script>
+    /* ------------- */
     /* create a map in the 'map' div, add tiles of our choice, and then add a marker with some text in a popup */
-
     /* map class initialize */
     var map = L.map('map').setView([37.922060, 12.362527], 13);
-
+    /* ------------- */
     /* position zoomControl */
     map.zoomControl.setPosition("topright")
-
+    /* ------------- */
     /* adding OMS tilelayer */
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-
+    /* ------------- */
     /* adding marker in the center of map */
     L.marker([37.922060, 12.362527]).addTo(map)
         .bindPopup('A pretty CSS popup.<br> Easily customizable.')
         .openPopup();
-
+    /* ------------- */
     /* add map scale: down on left on page = scale({position: "bottomright"})*/
     L.control.scale().addTo(map)
-
+    /* ------------- */
     /* function full screen map view onclick */
     var mapId = document.getElementById('map') /* take DOM element by id */
     function fullScreenview(){
         mapId.requestFullscreen();
     }
-
+    /* ------------- */
     /* map coordinate display (jquery) */
     map.on('mousemove',function(e){
         /* console.log(e); */
@@ -84,7 +85,7 @@
         coordinates will appear in the console */
         $('.cordinate').html(`lat: ${e.latlng.lat} lng: ${e.latlng.lng}`)/* backtick to template literal */
     })
-
+    /* ------------- */
     /* Print map (jquery) */
     $('.print_map').click(function(){
         window.print()
@@ -96,14 +97,26 @@
         /* TNKU_veryMuch✨: https://github.com/Igor-Vladyka/leaflet.browser.print */
 
     L.control.browserPrint().addTo(map);/* it's also possibile to save map in PDF */
-
+    /* ------------- */
     /* measure on map */
 
-        /* import plug-in with npm install --save leaflet.browser.print
+        /* import plug-in Leaflet.Measure
         from terminal */
-        /* TNKU_veryMuch✨: https://github.com/ljagis/leaflet-measure */
+        /* TNKU_veryMuch✨: https://github.com/ptma/Leaflet.Measure*/
 
-    
+        /* other option:
+        https://ppete2.github.io/Leaflet.PolylineMeasure/
+        */
+
+    // add control to map
+    L.control.measure().addTo(map);
+
+    // using action directly
+    var measureAction = new L.MeasureAction(map, {
+        model: "distance", // 'area' or 'distance', default is 'distance'
+    });
+    // measureAction.setModel('area');
+    measureAction.enable();
 
 
 </script>
