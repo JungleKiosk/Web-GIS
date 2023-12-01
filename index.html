@@ -9,6 +9,8 @@
             crossorigin />
         <!-- CSS leaflet from CDN -->
         <link rel="stylesheet" href="./measure_lib/leaflet-measure.css">
+        <link rel="stylesheet" href="./markerCluster_lib/MarkerCluster.css">
+        <link rel="stylesheet" href="./markerCluster_lib/MarkerCluster.Default.css">
         <title>Web-GIS</title>
 
         <!-- style page -->
@@ -50,6 +52,8 @@
 <!-- import library leaflet-measure -->
 <script src="./data/markers.js"></script>
 <!-- import data test -->
+<script src="./markerCluster_lib/leaflet.markercluster.js"></script>
+<!-- import JS markerCluster -->
 
 <script>
     /* ------------- */
@@ -67,7 +71,7 @@
     /* ------------- */
     /* adding marker in the center of map */
     L.marker([37.922060, 12.362527]).addTo(map)
-        .bindPopup('A pretty CSS popup.<br> Easily customizable.')
+        .bindPopup('Cala Rossa <br> My favorite place')
         .openPopup();
     /* ------------- */
     /* add map scale: down on left on page = scale({position: "bottomright"})*/
