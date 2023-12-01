@@ -126,7 +126,11 @@
     /* ------------- */
     /* Load geoJSON from data file JS */
     var marker = L.markerClusterGroup();
-    var taji = L.geoJSON(data);
+    var taji = L.geoJSON(data, {
+        onEachFeature: function(features, layer){
+            layer.bindPopup('popup')
+        }
+    });
     taji.addTo(marker);
     marker.addTo(map)
 
