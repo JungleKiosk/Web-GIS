@@ -10,39 +10,6 @@ var data = {
         "properties": {},
         "geometry": {
           "coordinates": [
-            11.809118657745898,
-            45.44790850907958
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            11.381047310923634,
-            45.21158402685384
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
-            10.942471145775244,
-            45.501313771149995
-          ],
-          "type": "Point"
-        }
-      },
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": [
             12.340996130039002,
             37.93602863353074
           ],

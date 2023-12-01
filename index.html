@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="./measure_lib/leaflet-measure.css">
         <link rel="stylesheet" href="./markerCluster_lib/MarkerCluster.css">
         <link rel="stylesheet" href="./markerCluster_lib/MarkerCluster.Default.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
         <title>Web-GIS</title>
 
         <!-- style page -->
@@ -32,7 +33,8 @@
         <div id="map"></div>
         <!-- button onclik full screen map -->
         <button onclick=fullScreenview()> View in full screen </button>
-        <div class="cordinate"></div>
+        <h3 class="lat"></h3>
+        <h3 class="lng"></h3>
         <button class="print_map">Print map</button>
         <h2>reference coordinates: 37.922060 12.362527</h2>
     </body>
@@ -47,13 +49,15 @@
 <!-- jquery from CDN-->
 <script
     src="./node_modules/leaflet.browser.print/dist/leaflet.browser.print.min.js"></script>
-<!-- import library from terminal: npm install --save leaflet.browser.print ✨-->
+<!-- import library from terminal: npm install --save leaflet.browser.print-->
 <script src="./measure_lib/leaflet-measure.js"></script>
 <!-- import library leaflet-measure -->
 <script src="./data/markers.js"></script>
 <!-- import data test -->
 <script src="./markerCluster_lib/leaflet.markercluster.js"></script>
 <!-- import JS markerCluster -->
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+<!-- import JS Geocoder -->
 
 <script>
     /* ------------- */
@@ -89,7 +93,8 @@
         /* by moving the mouse on the map page,
         the JS objects containing the geographical
         coordinates will appear in the console */
-        $('.cordinate').html(`lat: ${e.latlng.lat} lng: ${e.latlng.lng}`)/* backtick to template literal */
+        $('.lat').html(`lat: ${e.latlng.lat}`)/* backtick to template literal */
+        $('.lng').html(`lng: ${e.latlng.lng}`)/* backtick to template literal */
     })
     /* ------------- */
     /* Print map (jquery) */
@@ -126,12 +131,20 @@
     /* ------------- */
     /* Load geoJSON from data file JS */
     var marker = L.markerClusterGroup();
+
     var taji = L.geoJSON(data, {
         onEachFeature: function(features, layer){
-            layer.bindPopup('popup')
+            layer.bindPopup()
         }
     });
+
     taji.addTo(marker);
     marker.addTo(map)
+    /* ------------- */
+    /* search bar Geocoder */
+    /* TNKU_veryMuch✨: https://github.com/perliedman/leaflet-control-geocoder */
+    L.Control.geocoder().addTo(map);
+    /* ------------- */
+    
 
 </script>
