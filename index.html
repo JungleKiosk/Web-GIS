@@ -28,7 +28,8 @@
         <h1>Hello Leaflet</h1>
         <div id="map"></div>
         <!-- button onclik full screen map -->
-        <button onclick = fullScreenview()> View in full screen </button>
+        <button onclick=fullScreenview()> View in full screen </button>
+        <div class="cordinate"></div>
         <h2>reference coordinates: 37.922060 12.362527</h2>
     </body>
 </html>
@@ -36,6 +37,10 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin></script>
 <!-- JS leaflet from CDN  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- jquery from CDN-->
 
 <script>
 /* create a map in the 'map' div, add tiles of our choice, and then add a marker with some text in a popup */
