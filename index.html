@@ -42,6 +42,8 @@
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- jquery from CDN-->
+<script src="./node_modules/leaflet.browser.print/dist/leaflet.browser.print.min.js"></script>
+<!-- import library from terminal: npm install --save leaflet.browser.print ✨-->
 
 <script>
 /* create a map in the 'map' div, add tiles of our choice, and then add a marker with some text in a popup */
@@ -85,5 +87,11 @@ $('.print_map').click(function(){
     window.print()
 })
 
+/* the map window print is not responsive */
+/* So, import npm install --save leaflet.browser.print
+from terminal */
+/* TNKU_veryMuch✨: https://github.com/Igor-Vladyka/leaflet.browser.print */
+
+L.control.browserPrint().addTo(map);
 
 </script>
