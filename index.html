@@ -27,6 +27,8 @@
 
         <h1>Hello Leaflet</h1>
         <div id="map"></div>
+        <!-- button onclik full screen map -->
+        <button onclick = fullScreenview()> View in full screen </button>
         <h2>reference coordinates: 37.922060 12.362527</h2>
     </body>
 </html>
@@ -55,7 +57,12 @@ L.marker([37.922060, 12.362527]).addTo(map)
     .openPopup();
 
 /* add map scale: down on left on page = scale({position: "bottomright"})*/
+L.control.scale().addTo(map)
 
-L.control.scale({position:"bottomright"}).addTo(map)
+/* function full screen map view onclick */
+var mapId = document.getElementById('map') /* take DOM element by id */
+function fullScreenview(){
+    mapId.requestFullscreen();
+}
 
 </script>
