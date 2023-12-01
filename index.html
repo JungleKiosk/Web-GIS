@@ -48,6 +48,8 @@
 <!-- import library from terminal: npm install --save leaflet.browser.print ✨-->
 <script src="./measure_lib/leaflet-measure.js"></script>
 <!-- import library leaflet-measure -->
+<script src="./data/markers.js"></script>
+<!-- import data test -->
 
 <script>
     /* ------------- */
@@ -117,6 +119,9 @@
     });
     // measureAction.setModel('area');
     measureAction.enable();
+    /* ------------- */
+    L.geoJSON(data).addTo(map);
+
 
 
 </script>
