@@ -51,8 +51,8 @@ L.marker([37.922060, 12.362527]).addTo(map)
     .bindPopup('A pretty CSS popup.<br> Easily customizable.')
     .openPopup();
 
-/* add map scale: down on left on page */
+/* add map scale: down on left on page = scale({position: "bottomright"})*/
 
-L.control.scale().addTo(map)
+L.control.scale({position:"bottomright"}).addTo(map)
 
 </script>
