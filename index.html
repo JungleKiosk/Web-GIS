@@ -169,7 +169,10 @@
         'CyclOSM': CyclOSM,
     }
 
+    var overLayMaps = {
+        'GeoJSON_Markers': marker
+    }
     
-    L.control.layers(baseMaps).addTo(map)
+    L.control.layers(baseMaps, overLayMaps).addTo(map)
 
 </script>
