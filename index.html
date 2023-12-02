@@ -37,7 +37,8 @@
         <button onclick=fullScreenview()> View in full screen </button>
         <h3 class="lat"></h3>
         <h3 class="lng"></h3>
-        <button class="print_map">Print map</button>
+        <!-- <button class="print_map">Print map</button> -->
+        <button class="zoom_to_layer">Zoom to point</button>
         <h2>reference coordinates: 37.922060 12.362527</h2>
     </body>
 </html>
@@ -175,5 +176,12 @@
     }
     
     L.control.layers(baseMaps, overLayMaps).addTo(map)
+    /* ------ */
+    /* zoom to layer */
+    /* jquery function */
+    $('.zoom_to_layer').click(function(){
+        map.setView([37.922060, 12.362527])
+    })
+
 
 </script>
