@@ -92,7 +92,7 @@
     });
     /* ------------- */
     /* adding marker in the center of map */
-    L.marker([37.922060, 12.362527]).addTo(map)
+    var refMarker = L.marker([37.922060, 12.362527])
         .bindPopup('Cala Rossa <br> My favorite place')
         .openPopup();
     /* ------------- */
@@ -170,7 +170,8 @@
     }
 
     var overLayMaps = {
-        'GeoJSON_Markers': marker
+        'GeoJSON_Markers': marker,
+        'Reference_Marker': refMarker,
     }
     
     L.control.layers(baseMaps, overLayMaps).addTo(map)
