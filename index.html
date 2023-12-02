@@ -10,8 +10,10 @@
         <!-- CSS leaflet from CDN -->
         <link rel="stylesheet" href="./measure_lib/leaflet-measure.css">
         <link rel="stylesheet" href="./markerCluster_lib/MarkerCluster.css">
-        <link rel="stylesheet" href="./markerCluster_lib/MarkerCluster.Default.css">
-        <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+        <link rel="stylesheet"
+            href="./markerCluster_lib/MarkerCluster.Default.css">
+        <link rel="stylesheet"
+            href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
         <title>Web-GIS</title>
 
         <!-- style page -->
@@ -56,7 +58,8 @@
 <!-- import data test -->
 <script src="./markerCluster_lib/leaflet.markercluster.js"></script>
 <!-- import JS markerCluster -->
-<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+<script
+    src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 <!-- import JS Geocoder -->
 
 <script>
@@ -68,10 +71,25 @@
     /* position zoomControl */
     map.zoomControl.setPosition("topright")
     /* ------------- */
-    /* adding OMS tilelayer */
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    /* adding tilelayer */ 
+    /* https://leaflet-extras.github.io/leaflet-providers/preview/ */
+    /* OMS */
+    var oms = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
+    /* TopoMap */
+    var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+	maxZoom: 17,
+	attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+    });
+    /* JawgMatrix */
+    var Jawg_Matrix = L.tileLayer('https://{s}.tile.jawg.io/jawg-matrix/{z}/{x}/{y}{r}.png?access-token={accessToken}', {
+	attribution: '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+	minZoom: 0,
+	maxZoom: 22,
+	subdomains: 'abcd',
+	accessToken: '<your accessToken>'
+    });
     /* ------------- */
     /* adding marker in the center of map */
     L.marker([37.922060, 12.362527]).addTo(map)
