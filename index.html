@@ -32,15 +32,19 @@
             <div class="row">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-info">
                     <h1 class="mx-2 p-2 text-dark">Hello Leaflet</h1>
-                    <h1 class="mx-2 p-2"><a class="navbar-brand" href="#">Basic Web-GIS</a></h1>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    <h1 class="mx-2 p-2"><a class="navbar-brand" href="#">Basic
+                            Web-GIS</a></h1>
+                    <button class="navbar-toggler" type="button"
+                        data-toggle="collapse"
                         data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
                         aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-        
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <div class="collapse navbar-collapse"
+                        id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
                                 <a class="nav-link" href="#">Home</a>
@@ -55,14 +59,29 @@
         </div>
 
         <div id="map"></div>
-        <div id="widget" class="container-fluid">
-            <!-- button onclik full screen map -->
-            <button onclick=fullScreenview()> View in full screen </button>
-            <h3 class="lat"></h3>
-            <h3 class="lng"></h3>
-            <!-- <button class="print_map">Print map</button> -->
-            <button class="zoom_to_layer">Zoom to point</button>
-            <h2>reference coordinates: 37.922060 12.362527</h2>
+        <div class="container-fluid">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- button onclik full screen map -->
+                    <div class="col-12 col-lg-4">
+                        <button onclick=fullScreenview()> View in full screen
+                        </button>
+                    </div>
+                    <div class="col-12 col-lg-2">
+                        <h3 class="lat"></h3>
+                    </div>
+                    <div class="col-12 col-lg-2">
+                        <h3 class="lng"></h3>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <button class="zoom_to_layer">Zoom to point</button>
+                    </div>
+
+                    <!-- <button class="print_map">Print map</button> -->
+
+                </div>
+            </div>
+
         </div>
 
     </body>
